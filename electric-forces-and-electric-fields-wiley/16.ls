@@ -27,6 +27,6 @@ say "B) #{t}s"
 
 vf = sqrt(vi^2 + (2 * a * Δx))
 
-say 1 - ((vf^2) / (vi^2))
+frac = 1 - ((vf^2) / (vi^2))
 
-say a
+say "C) #{frac}"

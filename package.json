@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lsse": "^1.0.17",
     "mathjs": "^11.11.2",
     "prelude-ls": "^1.2.1"
   }

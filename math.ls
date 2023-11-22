@@ -1,5 +1,6 @@
 require! {
-    'prelude-ls':{filter,tail}
+    'prelude-ls':{filter,tail,fold1,flip,map,difference}
+    'lsse':{fn,fold0,lambda,uniq}
 }
 
 mathjs = require \mathjs
@@ -7,6 +8,8 @@ mathjs = require \mathjs
 export inc = (+ 1)
 
 export dec = (- 1)
+
+export len = (.length)
 
 export sin = Math.sin
 
@@ -30,7 +33,7 @@ export arccsc = (1 /) >> Math.asin
 
 export arcsec = (1 /) >> Math.acos
 
-export arctan = (1 /) >> Math.atan
+export arccot = (1 /) >> Math.atan
 
 export to-rad = (* Math.PI) >> (/ 180.0deg)
 
@@ -80,13 +83,15 @@ export G = 6.67384`E`-11
 
 export g = 9.807mpss
 
-export factorial = (n) --> if n is 0 or n is 1 then 1 else n * factorial dec n
+export factorial = (n) -->
+    if n < 0 or n.to-string!split '' .includes '.' then return mathjs.gamma n
+    if n is 0 or n is 1 then return 1 else return n * factorial dec n
 
-export divisors = (n) --> filter ((x) -> n % x is 0), [1 til n]
+export divisors = (n) --> filter (--> (is) 0 (%) n, it), [1 til n]
 
-export is-perfect = (n) --> n is fold0 (+), divisors n
+export is-perfect = --> it is fold0 (+), divisors it
 
-export is-natural-number = (n) --> n > 0 and Number.is-integer n
+export is-natural-number = --> (<) 0 it and Number.is-integer it
 
 export is-int = Number.is-integer
 
@@ -115,10 +120,6 @@ export elementary-charge = 1.602176634`E`-19
 export coulomb = 1 / elementary-charge
 
 export micro-coulumb = (1`E`-6) * coulomb
-
-export C = 299792458mps # speed of light
-
-export K = 9`E`9
 
 export proton-mass = 1.672621898`E`-27kg
 
@@ -226,10 +227,126 @@ export say = console.log
 
 export π = Math.PI
 
-export linear-charge = (Δq, Δl) --> Δq / Δl
+export linear-charge = (q, Δl) --> Δq / Δl
 
-export λ = linear-charge
+export λ = fn
 
-export τ = (*) 2 π
+export hypot = (a, b) --> sqrt((parse-float(a)^2) + (parse-float(b)^2))
 
-export hyp = (a, b) --> sqrt((parse-float(a)^2) + (parse-float(b)^2))
+export me = electron-mass
+
+export mp = proton-mass
+
+export mα = (*) 4 proton-mass
+
+export alpha-particle-mass = mα
+
+export Qα = (*) 2 elementary-charge
+
+export alpha-particle-charge = Qα
+
+export C = 299792458mps # speed of light
+
+export e = Math.E
+
+export τ = (*) 2 Math.PI
+
+export tau = τ
+
+export magnetic-constant = ((*) 4 π)`E`-7Hpm
+
+export μ0 = magnetic-constant
+
+export vacuum-permittivity = recip (μ0 * C^2)
+
+export ε0 = vacuum-permittivity
+
+export Ke = recip (4 * π * ε0)
+
+export prod = (...args) -> fold1 (*), args
+
+export sum = (...args) -> fold0 (*), args
+
+export expt = flip Math.pow
+
+export vec-mult = (xs, ys) -->
+    return [0, 0] if len xs isnt len ys
+    zs = []
+    for i in [0 til len xs]
+        zs = (flip (++)) [xs[i] * ys[i]] zs
+    zs
+
+export mag = --> sqrt parse-float fold0 (+), map (^2), it
+
+export list = (...args) -> args
+
+export vec = list
+
+export append = (++)
+
+export list-append = append
+
+export string-append = (+)
+
+export ƒ = lambda
+
+export ǀ = len
+
+export ǁ = Math.abs
+
+export Δ = (xs, ys) --> uniq (++) [x for x in xs when x not in ys] [y for y in ys when y not in xs]
+
+export difference = Δ
+
+export ϵ = (x, xs) --> x in xs
+
+export ᐡ = (++) >> uniq
+
+export union = ᐡ
+
+export ᐢ = (xs, ys) --> uniq (++) [x for x in xs when x in ys] [y for y in ys when y in xs]
+
+export intersection = ᐢ
+
+export ᑦ = (xs, ys) -->
+    xsu = uniq xs
+    ysu = uniq ys
+    ϵ on [(x `ϵ` ysu) for x in xsu]
+
+export proper-subset = ᑦ
+
+export ᐣ = flip ᑦ
+
+export proper-superset = ᐣ
+
+export negate = --> if (<) 0 it then -it else it
+
+export neg = negate
+
+export ᐨ = neg
+
+export ᕀ =--> if (>) 0 it then -it else it
+
+export Ɩ = Math.floor
+
+export to_set = (new Set)
+
+export Ø = len >> (< 1)
+
+export p = console.log
+
+export Σ = --> foldl0 (+), it
+
+export ǃ = factorial
+
+export half = (/ 2)
+
+export putStrLn = p
+
+export display-box = p
+
+export t = yes
+
+export f = no
+
+export double = (* 2)

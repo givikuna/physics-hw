@@ -1,5 +1,5 @@
 require! {
-    "../math":{say,λ,π,elementary-charge,E,K,abs,dcos,dsin,hyp,darctan}
+    "../math":{say,λ,π,elementary-charge,E,K,abs,dcos,dsin,hyp,darctan,floor,ceil}
 }
 
 r = 1.92uC`E`-6m
@@ -12,4 +12,4 @@ V = (4.0 / 3.0) * π * (r^3)
 
 m = d * V
 
-say ((m * 9.8) / Ef) / e
+say ceil (((m * 9.8) / Ef) / e)

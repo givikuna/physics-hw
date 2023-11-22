@@ -12,6 +12,12 @@ q = e
 
 Fey = Efy * q
 m = electron-mass
-a = Fey / m
+a = -Fey / m
 
-say "#{a}m/s^2"
+say "A) (#{a}m/s^2)ĵ"
+
+Δx = (/) 2.4cm 100m
+t = abs (Δx / vx)
+vyf = vy + a * t
+
+say "B) (1.6e5m/s)î + (#{vyf}m/s)ĵ"
