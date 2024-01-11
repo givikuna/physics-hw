@@ -1,6 +1,6 @@
 require! {
     'prelude-ls':{filter,tail,fold1,flip,map,difference}
-    'lsse':{fn,fold0,lambda,uniq}
+    'lsse':{fn,fold0,lambda,uniq,foldl0}
 }
 
 mathjs = require \mathjs
