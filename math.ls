@@ -1,5 +1,5 @@
 require! {
-    'prelude-ls':{filter,tail,fold1,flip,map,difference}
+    'prelude-ls':{filter,tail,fold1,flip,map,difference,fold}
     'lsse':{fn,fold0,lambda,uniq,foldl0}
 }
 
@@ -294,8 +294,6 @@ export ǀ = len
 
 export ǁ = Math.abs
 
-export Δ = (xs, ys) --> uniq (++) [x for x in xs when x not in ys] [y for y in ys when y not in xs]
-
 export difference = Δ
 
 export ϵ = (x, xs) --> x in xs
@@ -350,3 +348,5 @@ export t = yes
 export f = no
 
 export double = (* 2)
+
+export Δ = (-)
