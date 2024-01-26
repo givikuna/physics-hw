@@ -14,7 +14,7 @@ p I1_mag
 
 (Reff = R1 + expt -1 ((recip R2) + expt -1 ((*) 2 recip R2)))
 (Ieff = ǁ ε / R2)
-(P = Reff * Ieff)
+(P = Reff * (expt 2 Ieff))
 (DE = P * t)
 
 (p DE)
