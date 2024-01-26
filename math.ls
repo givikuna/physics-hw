@@ -333,7 +333,7 @@ export Ø = len >> (< 1)
 
 export p = console.log
 
-export Σ = --> foldl0 (+), it
+export Σ = fold0 (+)
 
 export ǃ = factorial
 
@@ -350,3 +350,13 @@ export f = no
 export double = (* 2)
 
 export Δ = (-)
+
+export Π = fold1 (*)
+
+export effective-resistance-in-parallel = --> (Π it) / (Σ it)
+
+export effective-resistance-in-series = Σ
+
+export effective-capacitance-in-parallel = Σ
+
+export effective-capacitance-in-parallel = --> (Π it) / (Σ it)
