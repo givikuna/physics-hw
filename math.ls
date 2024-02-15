@@ -166,8 +166,6 @@ export e = Math.E
 
 export pi = Math.PI
 
-export tau = (*) 2 pi
-
 export abs = Math.abs
 
 export sqrt = Math.sqrt
