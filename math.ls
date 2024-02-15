@@ -292,6 +292,8 @@ export ǀ = len
 
 export ǁ = Math.abs
 
+export ㅣㅣ = Math.abs
+
 export difference = Δ
 
 export ϵ = (x, xs) --> x in xs
@@ -322,6 +324,10 @@ export neg = negate
 export ᐨ = neg
 
 export ᕀ =--> if (>) 0 it then -it else it
+
+export eᐨ = elementary-charge
+
+export pᕀ = elementary-charge
 
 export Ɩ = Math.floor
 
