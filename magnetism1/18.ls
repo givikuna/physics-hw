@@ -1,9 +1,9 @@
 require!{
     'prelude-ls':{map}
-    '../math.ls':{E,p,π,expt,λ,ε0,say,Ke,sum,list,recip,Σ,half,ln,e,elementary-charge,ㅣㅣ,pᕀ,dsin,mp,ㅣeᐨㅣ,mα,Qα,me,sqrt}
+    '../math.ls':{E,p,π,expt,λ,ε0,say,Ke,sum,list,recip,Σ,half,ln,e,elementary-charge,ㅣㅣ,pᕀ,dsin,mp,eᐨ,mα,Qα,me,sqrt}
 }
 
-Energy = (0.901keV`E`3) * ㅣeᐨㅣ #J
+Energy = (0.901keV`E`3) * eᐨ #J
 r = 0.21m
 
 # K = 0.5 * m * v
@@ -12,7 +12,7 @@ v = sqrt (((*) 2 Energy) / me)
 
 # r = (me * v) / (q * B)
 # =>
-B = (me * v) / (ㅣeᐨㅣ * r)
+B = (me * v) / (eᐨ * r)
 
 f = v / (2 * π * r)
 
