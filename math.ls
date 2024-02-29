@@ -243,7 +243,7 @@ export Qα = (*) 2 elementary-charge
 
 export alpha-particle-charge = Qα
 
-export C = 299792458mps # speed of light
+export c = 299792458mps # speed of light
 
 export e = Math.E
 
@@ -251,11 +251,11 @@ export τ = (*) 2 Math.PI
 
 export tau = τ
 
-export magnetic-constant = ((*) 4 π)`E`-7Hpm
+export magnetic-constant = ((*) 4 π)`E`-7TmpA
 
 export μ0 = magnetic-constant
 
-export vacuum-permittivity = recip (μ0 * C^2)
+export vacuum-permittivity = recip (μ0 * c^2)
 
 export ε0 = vacuum-permittivity
 
