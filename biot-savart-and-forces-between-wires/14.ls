@@ -6,6 +6,13 @@
 a = 6.12cm`E`-2m
 i = 12.2A
 
-F1 = (μ0 * (i^2) * sqrt 10) / (4 * Math.PI * a)
+r = a * sqrt 2
+B_each = (μ0 * i) / (2 * Math.PI * r)
+FB_each = B_each * i * dsin 90deg
 
-p F1
+FNET = (*) 4 FB_each
+
+FNETpl = FNET / r
+
+p FNET
+p FNETpl
