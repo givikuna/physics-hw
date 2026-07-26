@@ -9,4 +9,11 @@
 (define (qstr s1 s2)
   (string-append (string-append (~a s1) ") ") (~a s2)))
 
-(provide nn qnn qstr)
+(define (qn s1 n1)
+  (string-append (string-append (~a s1) ") ") (number->string n1)))
+
+(provide
+  nn
+  qnn
+  qstr
+  qn)

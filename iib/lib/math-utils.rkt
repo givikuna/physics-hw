@@ -6,4 +6,10 @@
 (define (recip n)
   (/ 1 n))
 
-(provide log10 recip)
+(define (neg n)
+  (* -1 n))
+
+(provide
+  log10
+  recip
+  neg)
