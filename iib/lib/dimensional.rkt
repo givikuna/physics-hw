@@ -1,5 +1,12 @@
 #lang racket
 
+; LOCALS
+
+(define lightspeed 2.998e8) ; m/s
+(define elem-charge 1.60217663e-19) ; C
+
+; SLACOL
+
 (define (km->m km)
   (* km 1000))
 
@@ -81,7 +88,81 @@
 (define (minutes->years minutes)
   (days->years (minutes->days minutes)))
 
+(define (kg->lb kg)
+  (* kg 2.20462))
+
+(define (lb->kg lb)
+  (* lb 0.453592))
+
+(define (lb->ton lb)
+  (/ lb 2000))
+
+(define (ton->lb ton)
+  (* ton 2000))
+
+(define (kg->ton kg)
+  (lb->ton (kg->lb kg)))
+
+(define (ton->kg ton)
+  (lb->kg (ton->lb ton)))
+
+(define (kg->eV kg)
+  (/ (* kg (sqr lightspeed)) elem-charge))
+
+(define (eV->kg eV)
+  (/ (* eV elem-charge) (sqr lightspeed)))
+
+(define (eV->GeV eV)
+  (* eV 1e-9))
+
+(define (GeV->eV GeV)
+  (* GeV 1e9))
+
+(define (kg->GeV kg)
+  (eV->GeV (kg->eV kg)))
+
+(define (GeV->kg GeV)
+  (eV->kg (GeV->eV GeV)))
+
+(define (eV->J eV)
+  (* eV 1.60218e-19))
+
+(define (J->eV J)
+  (* J 6.242e18))
+
+(define (eV->MeV eV)
+  (* eV 1e-6))
+
+(define (MeV->eV MeV)
+  (* MeV 1000000))
+
+(define (J->MeV J)
+  (eV->MeV (J->eV J)))
+
+(define (MeV->J MeV)
+  (eV->J (MeV->eV MeV)))
+
+(define (kg->MeV kg)
+  (eV->MeV (kg->eV kg)))
+
+(define (MeV->kg MeV)
+  (eV->kg (MeV->eV MeV)))
+
+(define (m->nm m)
+  (* m 1e9))
+
+(define (nm->m nm)
+  (* nm 1e9))
+
 (provide
+  nm->m
+  m->nm
+  kg->MeV
+  MeV->kg
+  eV->MeV
+  MeV->J
+  MeV->eV
+  J->MeV
   km->m
   cm->m
   m->cm
@@ -108,4 +189,18 @@
   seconds->days
   seconds->years
   minutes->days
-  minutes->years)
+  minutes->years
+  kg->lb
+  lb->kg
+  lb->ton
+  ton->lb
+  kg->ton
+  ton->kg
+  kg->eV
+  eV->kg
+  eV->GeV
+  GeV->eV
+  kg->GeV
+  GeV->kg
+  eV->J
+  J->eV)

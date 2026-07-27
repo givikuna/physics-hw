@@ -77,3 +77,47 @@
               [delta-t (* delta-t-0 γ)])
          (identity delta-t))
        "s"))
+
+; Part D
+; The captain of ship B knows that Ship A uses 2m long missiles.
+; She measures the length of the first missile,
+; Once it has finished accelerating, and finds it to be only 0.872m long.
+; What is the speed v of the missile, relative to ship B?
+; express your answer in m/s
+
+; sqrt ((1 - (l / l0)^2) * c)
+
+(displayln
+  (qnn #\D
+       (let* ([c lightspeed]
+              [l0 2]
+              [l 0.872]
+              [v (sqrt (* (- 1 (sqr (/ l l0))) (sqr c)))])
+         (identity v))
+       "m/s"))
+
+; It should be noted that the same equations apply to events in your everyday life.
+; The reason that you didn't notice them is that objects in your everyday life move so much slower than the speed of light.
+; Now let's look at the differences in measurements between two frames moving relative to one another at a speed of 30 m/s.
+; Your calculator may not be able to store enough digits to work these problems accurately, so you may need to use the approximations from the binomial expansion:
+; 1/(sqrt 1 - (v/c)^2) = 1 + (v/c)^2/2
+; and
+; sqrt(1 - (v/c)^2) = 1 - (v/c)^2/2
+
+; Part E
+
+; What would be the difference between the time t measured by an observer moving at 30 m/s and the proper time t0 for a proper time interval of 1 hour (3600s)?
+; The answer is small but nonzero.
+; You will need to find an expression from the time difference using the approximation given in this problem before you substitute in the numbers
+; otherwise your calculator will just give zero
+; express your answer in seconds
+; use c=3e8
+
+(displayln
+  (qnn #\E
+       (let* ([c c-less-precise]
+       [t0 3600]
+       [v 30]
+       )
+         (identity 1))
+       #\s))

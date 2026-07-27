@@ -4,8 +4,13 @@
     "displayln",
     "expt",
     "lightspeed",
+    "nonrel",
+    "qcomma",
+    "qscomma",
     "readtable",
     "recip",
-    "refr"
+    "refr",
+    "SLACOL",
+    "starfighter"
   ]
 }
