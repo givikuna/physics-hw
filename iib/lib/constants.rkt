@@ -9,11 +9,14 @@
 (define M-sun-less-precise 2.0e30) ; kg
 (define M-proton 1.67e-27) ; kg
 (define M-neutron 9.75e-28) ; kg
+(define M-electron 9.11e-31) ; kg
 (define G 6.67e-11) ; m^3/(kg*s)
 (define ε_0 8.85e-12) ; C/(V*m)
 (define elem-charge 1.60217663e-19) ; C
 (define stefan-boltzmann 5.67e-8) ; W / (m^2 * K^4)
 (define wien-displacement 2.89777e-3) ; m * K
+(define plancks-constant 6.62607015e-34) ; m^2kg/s
+(define rydberg-constant 1.097e7) ; 1/m
 
 (provide
   lightspeed
@@ -27,4 +30,7 @@
   ε_0
   M-proton
   elem-charge
-  M-neutron)
+  M-neutron
+  plancks-constant
+  M-electron
+  rydberg-constant)

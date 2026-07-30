@@ -9,7 +9,15 @@
 (define (neg n)
   (* -1 n))
 
+(define (inc n)
+  (+ 1 n))
+
+(define (dec n)
+  (- n 1))
+
 (provide
   log10
   recip
-  neg)
+  neg
+  inc
+  dec)

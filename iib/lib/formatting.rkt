@@ -13,7 +13,7 @@
   (string-append (string-append (~a s1) ") ") (number->string n1)))
 
 (define (qscomma s1 s2)
-  (string-append s1 (string-append ", " s2)))
+  (string-append (~a s1) (string-append ", " (~a s2))))
 
 (define (qcomma n1 n2)
   (qscomma (number->string n1) (number->string n2)))

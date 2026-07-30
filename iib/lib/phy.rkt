@@ -17,8 +17,32 @@
 (define (wien-lambda T)
   (/ wien-displacement T))
 
+(define (E-photon wavelength)
+  (/ (* lightspeed plancks-constant) wavelength))
+
+(define (newtonian-momentum m v)
+  (* m v))
+
+(define (de-broglie-wavelength p)
+  (/ plancks-constant p))
+
+(define (rest-energy m)
+  (* m (sqr lightspeed)))
+
+(define (balmer-serie n)
+  (* rydberg-constant (- (recip (sqr 2)) (recip (sqr n)))))
+
+(define (rydberg-formula m n)
+  (* rydberg-constant (- (recip (sqr m)) (recip (sqr n)))))
+
 (provide
   gamma
   K-nonrel
   K-rel
-  wien-lambda)
+  wien-lambda
+  E-photon
+  newtonian-momentum
+  de-broglie-wavelength
+  rest-energy
+  balmer-serie
+  rydberg-formula)

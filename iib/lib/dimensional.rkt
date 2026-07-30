@@ -8,28 +8,28 @@
 ; SLACOL
 
 (define (km->m km)
-  (* km 1000))
+  (* km 1000.0))
 
 (define (cm->m cm)
-  (/ cm 100))
+  (/ cm 100.0))
 
 (define (m->cm m)
-  (* m 100))
+  (* m 100.0))
 
 (define (kW->W kW)
-  (* kW 1000))
+  (* kW 1000.0))
 
 (define (W->kW W)
-  (/ W 1000))
+  (/ W 1000.0))
 
 (define (μs->s μs)
   (* μs 1e-6))
 
 (define (s->μs s)
-  (* s 1000000))
+  (* s 1000000.0))
 
 (define (decades->years decades)
-  (* decades 10))
+  (* decades 10.0))
 
 (define (years->days years)
   (* years 365))
@@ -95,10 +95,10 @@
   (* lb 0.453592))
 
 (define (lb->ton lb)
-  (/ lb 2000))
+  (/ lb 2000.0))
 
 (define (ton->lb ton)
-  (* ton 2000))
+  (* ton 2000.0))
 
 (define (kg->ton kg)
   (lb->ton (kg->lb kg)))
@@ -116,7 +116,7 @@
   (* eV 1e-9))
 
 (define (GeV->eV GeV)
-  (* GeV 1e9))
+  (* GeV 1.0e9))
 
 (define (kg->GeV kg)
   (eV->GeV (kg->eV kg)))
@@ -134,7 +134,7 @@
   (* eV 1e-6))
 
 (define (MeV->eV MeV)
-  (* MeV 1000000))
+  (* MeV 1000000.0))
 
 (define (J->MeV J)
   (eV->MeV (J->eV J)))
@@ -152,9 +152,28 @@
   (* m 1e9))
 
 (define (nm->m nm)
-  (* nm 1e9))
+  (/ nm 1e9))
+
+(define (g->kg g)
+  (* g 0.001))
+
+(define (kg->g kg)
+  (* kg 1000))
+
+(define (mm->m mm)
+  (* mm 0.001))
+
+(define (m->mm m)
+  (* m 1000))
+
+(define (kg->J kg)
+  (eV->J (kg->eV kg)))
 
 (provide
+  mm->m
+  m->mm
+  g->kg
+  kg->g
   nm->m
   m->nm
   kg->MeV
@@ -203,4 +222,5 @@
   kg->GeV
   GeV->kg
   eV->J
-  J->eV)
+  J->eV
+  kg->J)
