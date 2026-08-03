@@ -35,7 +35,32 @@
 (define (rydberg-formula m n)
   (* rydberg-constant (- (recip (sqr m)) (recip (sqr n)))))
 
+(define (K-nonrel-from-momentum p m)
+  (/ (sqr p) (* 2 m)))
+
+(define (x-uncertainty-v-f1-f2 v f1 f2)
+  (/ v (- f1 f2)))
+
+(define (x-uncertainty-v-delta-f v delta-f)
+  (/ v delta-f))
+
+(define (momentum-uncertainty-x delta-x)
+  (/ (/ hbar 2) delta-x))
+
+(define (position-uncertainty-p delta-p)
+  (momentum-uncertainty-x delta-p))
+
+(define (bohr-radius-Z-n Z n)
+  (* bohr-radius (/ (sqr n) Z)))
+
+(define (hydrogen-radius-n n)
+  (bohr-radius-Z-n 1 n))
+
 (provide
+  bohr-radius-Z-n
+  hydrogen-radius-n
+  x-uncertainty-v-delta-f
+  x-uncertainty-v-f1-f2
   gamma
   K-nonrel
   K-rel
@@ -45,4 +70,7 @@
   de-broglie-wavelength
   rest-energy
   balmer-serie
-  rydberg-formula)
+  rydberg-formula
+  K-nonrel-from-momentum
+  momentum-uncertainty-x
+  position-uncertainty-p)

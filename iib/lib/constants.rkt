@@ -17,8 +17,13 @@
 (define wien-displacement 2.89777e-3) ; m * K
 (define plancks-constant 6.62607015e-34) ; m^2kg/s
 (define rydberg-constant 1.097e7) ; 1/m
+(define hbar (/ plancks-constant (* 2.0 pi)))
+(define coulomb-const (/ 1 (* (* 4 pi) ε_0)))
+(define bohr-radius 5.292e-11) ; m ; a_0
 
 (provide
+  bohr-radius
+  coulomb-const
   lightspeed
   wien-displacement
   stefan-boltzmann
@@ -33,4 +38,5 @@
   M-neutron
   plancks-constant
   M-electron
-  rydberg-constant)
+  rydberg-constant
+  hbar)
