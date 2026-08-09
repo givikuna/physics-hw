@@ -6,6 +6,7 @@
     "expt",
     "foldl",
     "foldr",
+    "gvector",
     "lightspeed",
     "lmbd",
     "nonrel",
@@ -18,6 +19,7 @@
     "serie",
     "SLACOL",
     "starfighter",
-    "subshell"
+    "subshell",
+    "Zeeman"
   ]
 }

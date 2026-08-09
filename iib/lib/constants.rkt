@@ -20,8 +20,10 @@
 (define hbar (/ plancks-constant (* 2.0 pi)))
 (define coulomb-const (/ 1 (* (* 4 pi) ε_0)))
 (define bohr-radius 5.292e-11) ; m ; a_0
+(define empirical-nuclear-constant 1.2e-15) ;m
 
 (provide
+  empirical-nuclear-constant
   bohr-radius
   coulomb-const
   lightspeed

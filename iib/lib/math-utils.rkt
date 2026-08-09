@@ -15,9 +15,15 @@
 (define (dec n)
   (- n 1))
 
+(define (roughly-point-five? n)
+  (let ([abs-n (abs n)]
+        [epsilon 0.01])
+    (< (abs (- abs-n 0.5)) epsilon)))
+
 (provide
   log10
   recip
   neg
   inc
-  dec)
+  dec
+  roughly-point-five?)

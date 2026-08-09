@@ -66,6 +66,9 @@
 (define (quantum-L-max-n n)
   (* hbar (sqrt (* (- n 1) n))))
 
+(define (quantum-L-max-l l)
+  (* hbar (sqrt (* l (+ 1 l)))))
+
 (define (electron-shell-n n)
   (case n
     [(1) #\K]
@@ -82,7 +85,41 @@
     [9 #\g]
     [_ #\f]))
 
+(define (electron-subshell-orientations-count-l l)
+  (* 2 (+ (* 2 l) 1)))
+
+(define (z-orbital-L-ml m-l)
+  (* m-l hbar))
+
+(define (z-spin-L-ms ms)
+  (* ms hbar))
+
+(define (mk-electron-state n l m-l m-s)
+  (list n l m-l m-s))
+
+(define (check-electron-state estate)
+  (let ([n (first estate)]
+        [l (second estate)]
+        [m-l (third estate)]
+        [m-s (fourth estate)])
+    (and (exact-positive-integer? n)
+         (and (integer? l) (>= l 0) (< l n))
+         (and (integer? m-l) (<= m-l l) (<= (* -1 l) m-l))
+         (and (roughly-point-five? m-s)))))
+
+(define (spectroscopic-notation estate)
+  (let ([n (first estate)]
+        [l (second estate)])
+    (string-append (number->string n) (~a (electron-subshell-l l)))))
+
 (provide
+  spectroscopic-notation
+  check-electron-state
+  mk-electron-state
+  z-spin-L-ms
+  z-orbital-L-ml
+  quantum-L-max-l
+  electron-subshell-orientations-count-l
   quantum-L-max-n
   electron-subshell-l
   electron-shell-n
@@ -104,5 +141,4 @@
   rydberg-formula
   K-nonrel-from-momentum
   momentum-uncertainty-x
-  position-uncertainty-p
-  )
+  position-uncertainty-p)
