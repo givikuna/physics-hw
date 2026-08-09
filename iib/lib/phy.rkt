@@ -2,6 +2,7 @@
 
 (require "./math-utils.rkt")
 (require "./constants.rkt")
+(require "./list.rkt")
 
 (define (gamma v)
   (recip (sqrt (- 1 (sqr (/ v lightspeed))))))
@@ -56,7 +57,37 @@
 (define (hydrogen-radius-n n)
   (bohr-radius-Z-n 1 n))
 
+(define (orbital-quantum-numbers n)
+  (count-to 0 (- n 1)))
+
+(define (magnetic-quantum-numbers l)
+  (count-to (* -1 l) l))
+
+(define (quantum-L-max-n n)
+  (* hbar (sqrt (* (- n 1) n))))
+
+(define (electron-shell-n n)
+  (case n
+    [(1) #\K]
+    [(2) #\L]
+    [(3) #\M]
+    [(4) #\N]
+    [(5) #\O]))
+
+(define (electron-subshell-l l)
+  (match l
+    [0 #\s]
+    [1 #\p]
+    [2 #\d]
+    [9 #\g]
+    [_ #\f]))
+
 (provide
+  quantum-L-max-n
+  electron-subshell-l
+  electron-shell-n
+  magnetic-quantum-numbers
+  orbital-quantum-numbers
   bohr-radius-Z-n
   hydrogen-radius-n
   x-uncertainty-v-delta-f
@@ -73,4 +104,5 @@
   rydberg-formula
   K-nonrel-from-momentum
   momentum-uncertainty-x
-  position-uncertainty-p)
+  position-uncertainty-p
+  )
